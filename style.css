@@ -26,6 +26,7 @@ main {
   -webkit-font-smoothing: antialiased;
   min-width: var(--min-width);
   max-width: var(--max-width);
+  min-height: 100vh;
   background-color: var(--light-pink);
 }
 
@@ -73,7 +74,7 @@ main {
   width: 37.5rem;
   max-width: 75%;
   padding: 2rem;
-  transform: translateY(-35%);
+  transform: translateY(-8.5rem);
 }
 
 /* Main Title */
@@ -90,7 +91,8 @@ h1 {
 /* Accordion */
 
 h2 {
-  font-size: 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
   color: var(--dark-purple);
   display: flex;
   align-items: center;
@@ -114,22 +116,37 @@ h2 {
   position: relative;
 }
 
-.icon-plus, .icon-plus {
-  position: absolute;
+.icon-plus {
+  display: block;
 }
 
-.accordion-content {
-display: none;
+.icon-minus {
+  display: none;
 }
 
-.flex {
-  display: flex;
-}
-
-.faq-wrapper {
-  
+.icon-minus,
+.icon-plus {
+  cursor: pointer;
+  max-width: 30px;
 }
 
 .accordion-content {
   color: var(--grayish-purple);
+  margin-block-start: 1rem;
+  display: none;
+  transform-origin: top;
+  transform: scaleY(0);
+  opacity: 0;
+
+  transition: display 0.2s, transform 0.6s opacity 0.6s;
+}
+
+.accordion-content.active {
+  display: block;
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+.flex {
+  display: flex;
 }
